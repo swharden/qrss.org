@@ -19,4 +19,4 @@ jobs:
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: 🚀 Upload
-        run: rsync --archive --delete --exclude admin --stats -e 'ssh -p 18765' .src/ qrss.org@ssh.qrss.org:~/www/qrss.org/public_html/
+        run: rsync --archive --delete --exclude admin --stats -e 'ssh -p 18765' .src/ qrss.org@qrss.org:~/www/qrss.org/public_html/
