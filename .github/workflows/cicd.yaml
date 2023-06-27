@@ -13,6 +13,10 @@ jobs:
     steps:
       - name: 🛒 Checkout
         uses: actions/checkout@v3
+      - name: 🌎 Ping
+        run: ping qrss.org
+      - name: 🌎 Ping2
+        run: ping ssh.qrss.org
       - name: 🔑 Configure SSH
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
