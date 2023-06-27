@@ -19,3 +19,5 @@ jobs:
         run: echo "${{ secrets.PRIVATE_KEY }}" > ~/.ssh/id_rsa
       - name: 🚀 Upload
         run: rsync --archive --delete --stats -e 'ssh -p 18765 -o StrictHostKeyChecking=no' src/ qrss.org@ssh.qrss.org:~/www/qrss.org/public_html/
+      - name: 🧹 Clear Cache
+        run: ssh qrss.org@ssh.qrss.org -p 18765 "site-tools-client domain update id=1 flush_cache=1"
