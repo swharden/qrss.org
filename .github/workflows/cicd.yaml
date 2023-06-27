@@ -13,14 +13,10 @@ jobs:
     steps:
       - name: 🛒 Checkout
         uses: actions/checkout@v3
-      - name: 🌎 qrss.org
-        run: dig +short qrss.org
-      - name: 🌎 ssh.qrss.org
-        run: dig +short ssh.qrss.org
       - name: 🔑 Configure SSH
         run: |
           install -m 600 -D /dev/null ~/.ssh/id_rsa
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           echo "${{ secrets.KNOWN_HOSTS }}" > ~/.ssh/known_hosts
       - name: 🚀 Upload
-        run: rsync --archive --delete --exclude admin --stats -e 'ssh -p 18765' .src/ qrss.org@qrss.org:~/www/qrss.org/public_html/
+        run: rsync --archive --delete --exclude admin --stats -e 'ssh -p 18765' .src/ qrss.org@ssh.qrss.org:~/www/qrss.org/public_html/
