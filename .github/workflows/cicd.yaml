@@ -2,9 +2,6 @@ name: CICD
 
 on:
   workflow_dispatch:
-  push: # only runs on commits to main branch (typically after a merge)
-    branches:
-      - main
 
 jobs:
   publish:
