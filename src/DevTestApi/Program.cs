@@ -13,5 +13,5 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.MapWeatherEndpoints();
+app.MapDevTestEndpoints();
 app.Run();
