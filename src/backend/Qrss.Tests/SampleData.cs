@@ -1,6 +1,4 @@
-﻿using FluentAssertions;
-
-namespace Qrss.Tests;
+﻿namespace Qrss.Tests;
 
 public static class SampleData
 {

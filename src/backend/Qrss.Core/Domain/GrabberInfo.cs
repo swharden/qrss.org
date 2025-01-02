@@ -37,7 +37,7 @@ public class GrabberInfo : IEquatable<GrabberInfo>
         char[] cleanChars = $"{callsign}-{title}"
             .ToLowerInvariant()
             .ToCharArray()
-            .Where(c => char.IsAsciiLetterLower(c) || char.IsDigit(c) || c == '-')
+            .Where(c => char.IsAsciiLetterLower(c) || char.IsDigit(c))
             .ToArray();
 
         return new string(cleanChars);
