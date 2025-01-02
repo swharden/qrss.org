@@ -1,4 +1,5 @@
 ﻿using Qrss.Core.Domain;
+using System.Diagnostics;
 
 namespace Qrss.Core.GrabImageManagers;
 
@@ -97,12 +98,19 @@ public class FlatFolder : IGrabImageManager
 
         ParallelOptions options = new() { MaxDegreeOfParallelism = threads };
 
+        int bytesDownloaded = 0;
+        int imageCount = 0;
+
+        Stopwatch sw = Stopwatch.StartNew();
+
         await Parallel.ForEachAsync(grabbers, async (grabber, token) =>
         {
             using HttpClient client = new();
             using HttpResponseMessage response = await client.GetAsync(grabber.ImageUrl, token);
             using HttpContent content = response.Content;
             byte[] bytes = await content.ReadAsByteArrayAsync(token);
+            bytesDownloaded += bytes.Length;
+            imageCount += 1;
             string hash = GetHashForFilename(bytes);
 
             if (IsHashInDatabase(grabber.ID, hash))
@@ -121,6 +129,8 @@ public class FlatFolder : IGrabImageManager
             await File.WriteAllBytesAsync(saveAs, bytes, token);
             Filenames.Add(newFilename);
         });
+
+        Console.WriteLine($"Downloaded: {imageCount} images ({bytesDownloaded / 1e6:N2} MB) in {sw.Elapsed.TotalSeconds:N2} sec");
     }
 
     private async Task DeleteImageAsync(string filename)

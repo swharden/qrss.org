@@ -1,6 +1,6 @@
 ﻿namespace Qrss.Tests;
 
-public class GrabberInfoCsvDbTests
+public class CsvGrabberInfoDbTests
 {
     [Test]
     public void Test_CsvDatabase_Read()
