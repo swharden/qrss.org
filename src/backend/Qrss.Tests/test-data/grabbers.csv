@@ -1,0 +1,188 @@
+#ID,callsign,title,name,location,website,file
+AA7US,AA7US,Variable band,John,QTH and state varies,http://www.qsl.net/aa7us/,http://www.qsl.net/aa7us/hf3.jpg
+# AJ4VD,AJ4VD,30m,Scott,"Gainesville, FL, USA",https://swharden.com/software/Fhttps://github.com/swharden/QRSSplus/edit/master/grabbers.csvSKview/,https://swharden.com/dev/grabber/latest.png
+CT2IWW,CT2IWW,Usually 10m seasonal,Paulo,Portugal,https://www.qsl.net/c/ct2iww//CT2IWW_QRSS.html,https://www.qsl.net/ct2iww/grabber/hf1.jpg
+# DL4DTL,DL4DTL,40m,Maik,South Germany,http://qsl.net/dl4dtl/index.htm,http://qsl.net/dl4dtl/hf2.jpg
+EA8BVP-30m-Fast,EA8BVP,30m,Baltasar,Canary Islands,http://www.qsl.net/ea8bvp/grabber.html,http://www.qsl.net/ea8bvp/hf1.jpg
+EA8BVP-30m-Slow,EA8BVP,30m (4hr),Baltasar,Canary Islands,http://www.qsl.net/ea8bvp/grabber.html,http://www.qsl.net/ea8bvp/hf2.jpg
+G0FTD-NOMADIC,G0FTD,Tests,Andy,Kent,http://www.qsl.net/g0ftd/grabber.htm,http://www.qsl.net/g0ftd/hf1.jpg
+G0MQW-10m-Eu,G0MQW,EU QRSS band,Chris,"Reading, Berkshire, England",http://www.qsl.net/g0mqw/,http://www.qsl.net/g0mqw/hf1.jpg
+G0MQW-10m-NA,G0MQW,North America QRSS band),Chris,"Reading, Berkshire, England",http://www.qsl.net/g0mqw/,http://www.qsl.net/g0mqw/hf2.jpg
+G0MQW-6m,G0MQW,6m band,Chris,"Reading, Berkshire, England",http://www.qsl.net/g0mqw/,http://www.qsl.net/g0mqw/hf3.jpg
+G0MQW-40m,G0MQW,30m,Chris,"Reading, Berkshire, England",http://www.qsl.net/g0mqw/,http://www.qsl.net/g0mqw/hf4.jpg
+G0MQW-E,G0MQW,Variable,Chris,"Reading, Berkshire, England",http://www.qsl.net/g0mqw/,https://www.qsl.net/g0mqw/hf5.jpg
+G0MQW-X,G0MQW,Experiments,Chris,"Reading, Berkshire, England",http://www.qsl.net/g0mqw/,http://www.qsl.net/g0mqw/vhf5.jpg
+G0PYB-6m,G0PYB,6m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/6m/6mhf1.jpg
+G0PYB-10m,G0PYB,10m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/10m/10mhf1.jpg
+G0PYB-15m,G0PYB,15m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/15mhf1
+G0PYB-20m,G0PYB,20m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/20m/20mhf1.jpg
+G0PYB-30m,G0PYB,30m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/30m/30mhf1.jpg
+G0PYB-40m,G0PYB,40m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/40m/40mhf1.jpg
+G0PYB-60m,G0PYB,60m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/60m/60mhf1.jpg
+G0PYB-80m,G0PYB,80m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/60m/60mhf1.jpg
+G0PYB-160m,G0PYB,160m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/160m/160mhf1.jpg
+G0PYB-630m,G0PYB,630m,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/630m/630mhf1.jpg
+G0PYB-MISC,G0PYB,Variable,Martin,"Gainsborough UK",https://www.qsl.net/g0pyb,https://www.qsl.net/g0pyb/latest.png
+# G0UPL,G0UPL,Usually 20m,Hans,"Turkey",http://www.hanssummers.com,http://www.hanssummers.com/images/stories/balloons/ve3kcl/s.jpg
+G3VYZ-Fast-10m,G3VYZ,Grabber 1,Les,"Holywell, Northumberland, UK",https://www.holywell44.com/qrss/qrss.htm,https://www.holywell44.com/qrss/qrss_.jpg
+G3VYZ-Fast-40m,G3VYZ,Grabber 3,Les,"Holywell, Northumberland, UK",https://www.holywell44.com/qrss/qrss.htm,https://www.holywell44.com/qrss/qrss_3.jpg
+G3VYZ-Fast-60m,G3VYZ,Grabber 2,Les,"Holywell, Northumberland, UK",https://www.holywell44.com/qrss/qrss.htm,https://www.holywell44.com/qrss/qrss_2.jpg
+G3VYZ-40m-Slow,G3VYZ,Grabber 4,Les,"Holywell, Northumberland, UK",https://www.holywell44.com/qrss/qrss.htm,https://www.holywell44.com/qrss/qrss_4.jpg
+G3VYZ-5,G3VYZ,Grabber 5,Les,"Holywell, Northumberland, UK",https://www.holywell44.com/qrss/qrss.htm,https://www.holywell44.com/qrss/qrss_5.jpg
+G3VYZ-60m-Slow,G3VYZ,Grabber 6,Les,"Holywell, Northumberland, UK",http://www.holywell44.com/qrss/qrss.htm,http://www.holywell44.com/qrss/qrss_6.jpg
+G4IOG-6m,G4IOG,50MHz,Bob,"Newington, Kent, England",http://qsl.net/g4iog,http://qsl.net/g4iog/6mdir/hf6.png
+G4IOG-10m,G4IOG,28MHz,Bob,"Newington, Kent, England",http://qsl.net/g4iog,http://qsl.net/g4iog/10mdir/hf1.png
+G4IOG-12m,G4IOG,24.9MHz,Bob,"Newington, Kent, England",http://qsl.net/g4iog,https://qsl.net/g4iog/12mdir/hf12.png
+G4IOG-15m,G4IOG,21MHz,Bob,"Newington, Kent, England",http://qsl.net/g4iog,http://qsl.net/g4iog/15mdir/hf15.png
+G4IOG-20m,G4IOG,14MHz,Bob,"Newington, Kent, England",http://qsl.net/g4iog,https://www.qsl.net/g4iog/20mdir/hf2.png
+G4IOG-30m,G4IOG,10MHz,Bob,"Newington, Kent, England",https://www.qsl.net/g4iog/30mdir/30mpage.html,https://www.qsl.net/g4iog/30mdir/hf3.png 
+G4IOG-40m,G4IOG,7MHz,Bob,"Newington, Kent, England",http://qsl.net/g4iog,https://www.qsl.net/g4iog/40mdir/hf4.png
+G4IOG-60m,G4IOG,5.3MHz,Bob,"Newington, Kent, England",http://qsl.net/g4iog,https://www.qsl.net/g4iog/60mdir/hf60.png
+G4IOG-80m,G4IOG,3.5MHz,Bob,"Newington, Kent, England",https://www.qsl.net/g4iog/80mdir/80mpage.html,https://www.qsl.net/g4iog/80mdir/hf80.png
+G4IOG-160m,G4IOG,1.8MHz,Bob,"Newington, Kent, England",http://qsl.net/g4iog,https://qsl.net/g4iog/160mdir/hf160.png
+G6AVK,G6AVK,Various bands,Colin,"Essex, England",http://www.qsl.net/g6avk/,http://www.qsl.net/g6avk/hf6.jpg
+GJ7RWT,GJ7RWT,Usually 40m,Andy,"Jersey, England",http://www.qsl.net/gj7rwt/gj7rwthomepage.html,https://www.qsl.net/g/gj7rwt/hf1.jpg
+HB9FXX-10m,HB9FXX,28MHz,Martin,Poland,https://hb9fxx.ch/qrss/,https://hb9fxx.ch/qrss/uploads/hf1.png
+JA1NGA-20m,JA1NGA,Experimenting,Kenji,Japan,https://qsl.net/ja1nga/hf1.jpg,https://qsl.net/ja1nga/hf1.jpg
+K4BYN-1,K4BYN,EXPERIMENTAL,Louis,North Carolina,https://www.qsl.net/k4byn/hf1,https://www.qsl.net/k4byn/hf1.jpg
+K4BYN-2,K4BYN,EXPERIMENTAL,Louis,North Carolina,https://www.qsl.net/k4byn/hf2,https://www.qsl.net/k4byn/hf2.jpg
+K5MO-Fast-10m,K5MO,10m band,John,North Carolina,https://qsl.net/k5mo/,https://qsl.net/k5mo/hf3.jpg
+K5MO-10m-Long,K5MO,10m band,John,North Carolina,https://qsl.net/k5mo/,https://qsl.net/k5mo/hf4.jpg
+K5MO-22m,K5MO,22M band,John,North Carolina,https://qsl.net/k5mo/,https://www.qsl.net/k5mo/hifer.jpg
+K5MO-Long-22m,K5MO,22M band,John,North Carolina,https://qsl.net/k5mo/,https://qsl.net/k5mo/longhifer.jpg
+KO4BHX-10m,KO4BHX,10m band,Ben,North Carolina,https://qsl.net/ko4bhx/,https://qsl.net/ko4bhx/qrss/10m.jpg
+KL7L-0,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/10Alaska00000.jpg
+KL7L-1,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/15Alaska00000.jpg
+KL7L-2,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/17Alaska00000.jpg
+KL7L-3,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/20Alaska00000.jpg
+KL7L-4,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/20aAlaska00000.jpg
+KL7L-5,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/22Alaska00000.jpg
+KL7L-6,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/30aAlaska00000.jpg
+KL7L-7,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/40Alaska00000.jpg
+KL7L-8,KL7L,Band can vary,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/60Alaska00000.jpg
+KL7L-XX,KL7L,Special ops,Laurence,"Wasilla,Alaska",http://kl7l.com/Alaska.html,http://kl7l.com/XXAlaska00000.jpg
+KQ4LMV-20m,KQ4LMV,EXPERIMENTAL,Scott,North Carolina,https://qsl.net/kq4lmv/,https://qsl.net/kq4lmv/QRSS/kq4lmv-20m-qrss.png
+KQ4LMV-40m,KQ4LMV,EXPERIMENTAL,Scott,North Carolina,https://qsl.net/kq4lmv/,https://qsl.net/kq4lmv/QRSS/kq4lmv-40m-qrss.png
+LA5GOA-30m,LA5GOA,30m,Steen,Norway,http://la5goa.manglet.net/grabber,https://qsl.net/la5goa/hf1.jpg
+M0BMN,M0BMN,Various,Paul,Wolverhampton,http://www.phoenixkitsonline.co.uk,http://www.phoenixkitsonline.co.uk/qrss.jpg
+M0HGU-30m,M0HGU,Usually 30m,Nick,Norfolk UK,https://www.dctower.co.uk/,https://www.dctower.co.uk/qrss/grab.jpg
+M0GBZ,M0GBZ,Various part time,Euan,Southern UK,https://qsl.net/m0gbz/,https://qsl.net/m0gbz/hf1.jpg
+M0PWX-6m,M0PWX,6m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://qsl.net/m0pwx/grabs/6m/6mhf1.jpg
+M0PWX-10m,M0PWX,10m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://qsl.net/m0pwx/grabs/10m/10mhf1.jpg
+M0PWX-15m,M0PWX,15m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://www.qsl.net/m0pwx/grabs/15m/15mhf1.jpg
+M0PWX-17m,M0PWX,17m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://qsl.net/m0pwx/grabs/17m/17mhf1.jpg
+M0PWX-Fast-20m,M0PWX,20m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://www.qsl.net/m0pwx/grabs/20m/20mhf1.jpg
+M0PWX-22m,M0PWX,22m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://www.qsl.net/m0pwx/grabs/22m/22mhf1.jpg
+M0PWX-30m,M0PWX,30m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://www.qsl.net/m0pwx/grabs/30m/30mhf1.jpg
+M0PWX-40m,M0PWX,40m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://qsl.net/m0pwx/grabs/40m/40mhf1.jpg
+M0PWX-60m,M0PWX,60m part time,Pete,Isle of Sheppey,https://qsl.net/m0pwx/grabbers.htm,https://qsl.net/m0pwx/grabs/60m/60mhf1.jpg
+M0PWX-80m,M0PWX,80m part time,Peter,Isle of Sheppey,https://www.qsl.net/m/m0pwx/,https://www.qsl.net/m/m0pwx/grabs/80m/80mhf1.jpg
+# M0RON,M0RON,Testing,Andy,Bishops Cleeve,https://www.qsl.net/m0ron/,https://www.qsl.net/m0ron/grabs/hf1.png
+N0LUF-1,N0LUF,Testing,Bryan,Colorado US,https://www.qsl.net/n0luf,https://www.qsl.net/n0luf/hf1.jpg
+N0LUF-2,N0LUF,Testing,Bryan,Colorado US,https://www.qsl.net/n0luf,https://www.qsl.net/n0luf/hf2.jpg
+N0LUF-3,N0LUF,Testing,Bryan,Colorado US,https://www.qsl.net/n0luf,https://www.qsl.net/n0luf/hf3.jpg
+N0LUF-4,N0LUF,Testing,Bryan,Colorado US,https://www.qsl.net/n0luf,https://www.qsl.net/n0luf/hf4.jpg
+N9JL-1,N9JL,30m FSKVIEW,John,Shorewood IL,https://www.qsl.net/n9jl,https://www.qsl.net/n9jl/capt.jpg
+N8NJ-1,N8NJ,Various bands,Larry,Ohio,https://www.qsl.net/n8nj/index.html,https://www.qsl.net/n8nj/hf1.jpg
+N8NJ-2,N8NJ,Various bands,Larry,Ohio,https://www.qsl.net/n8nj/index.html,https://www.qsl.net/n8nj/hf2.jpg
+OK1FCX-1,OK1FCX,Experimental,Radovan,"Czech Republic",http://www.qsl.net/ok1fcx/,http://www.qsl.net/ok1fcx/hf1.jpg
+OK1FCX-2,OK1FCX,Experimental,Radovan,"Czech Republic",http://www.qsl.net/ok1fcx/,http://www.qsl.net/ok1fcx/hf2.jpg
+OK1FCX-3,OK1FCX,Experimental,Radovan,"Czech Republic",http://www.qsl.net/ok1fcx/,http://www.qsl.net/ok1fcx/hf3.jpg
+OK1FCX-6m,OK1FCX,Experimental,Radovan,"Czech Republic",http://www.qsl.net/ok1fcx/,http://www.qsl.net/ok1fcx/hf4.jpg
+ON4CDJ,ON4CDJ,Various,Patrick,Belgium,http://qsl.net/on4cdj/qrss,http://qsl.net/on4cdj/qrss/hf1.jpg
+PA2OHH-10m,PA2OHH,Backup system Lopora,Onno,Spain,http://www.qsl.net/pa2ohh/grabber.htm,https://www.qsl.net/pa2ohh/grabber/hf5.jpg
+PA2OHH-12-15m,PA2OHH,Backup system Lopora,Onno,Spain,http://www.qsl.net/pa2ohh/grabber.htm,https://www.qsl.net/pa2ohh/grabber/hf6.jpg
+PA2OHH-20m,PA2OHH,Backup system Lopora,Onno,Spain,http://www.qsl.net/pa2ohh/grabber.htm,https://www.qsl.net/pa2ohh/grabber/hf4.jpg
+PA2OHH-30m,PA2OHH,Backup system Lopora,Onno,Spain,http://www.qsl.net/pa2ohh/grabber.htm,https://www.qsl.net/pa2ohh/grabber/hf1.jpg
+PA2OHH-40m,PA2OHH,Backup system Lopora,Onno,Spain,http://www.qsl.net/pa2ohh/grabber.htm,https://www.qsl.net/pa2ohh/grabber/hf2.jpg
+PA2OHH-80m,PA2OHH,Backup system Lopora,Onno,Spain,http://www.qsl.net/pa2ohh/grabber.htm,https://www.qsl.net/pa2ohh/grabber/hf3.jpg
+PA2ST-X,PA2ST,Misc Tests,Ben,Holland,https://images.1k2.nl/qrss/latest.png,https://images.1k2.nl/qrss/latest-x.png
+PA2ST-FERRITE,PA2ST,Ferrite rod tests,Ben,Holland,https://images.1k2.nl/qrss/latest.png,https://images.1k2.nl/qrss/latest-test.png
+PA2ST-10m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/latest.png,https://images.1k2.nl/qrss/latest.png
+PA2ST-ALT-10m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/latest.png,https://images.1k2.nl/qrss/latest-twente-10m.png
+PA2ST-15m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-twente-15m.png
+PA2ST-20m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-twente-20m.png
+PA2ST-22m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-twente-22m.png
+PA2ST-ALT-22m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-22m.png
+PA2ST-30m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-twente-30m.png
+PA2ST-40m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-twente-40m.png
+PA2ST-60m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-twente-60m.png
+PA2ST-80m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-twente-80m.png
+PA2ST-160m,PA2ST,Remote grabber,Ben,Holland,https://images.1k2.nl/qrss/,https://images.1k2.nl/qrss/latest-twente-160m.png
+# PA3GNZ-30m,PA3GNZ,30m,Tjeerd,Holland,https://www.pa3gnz.nl/qrss30m.htm,https://www.pa3gnz.nl/qrss30m.jpg
+S52AS-30m,S52AS,30m Part time,Roman,"Novo Mesto, Slovenia",http://novomesto.zevs.si/graber.htm,http://novomesto.zevs.si/podatki/test.gif
+SA6BSS-10m,SA6BSS,10m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf4.jpg
+SA6BSS-12m,SA6BSS,12m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/mf2.jpg
+SA6BSS-15m,SA6BSS,15m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf6.jpg
+SA6BSS-17m,SA6BSS,17m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf7.jpg
+SA6BSS-20m,SA6BSS,20m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf3.jpg
+SA6BSS-22m,SA6BSS,22m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf8.jpg
+SA6BSS-30m,SA6BSS,30m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf1.jpg
+SA6BSS-40m,SA6BSS,40m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf2.jpg
+SA6BSS-60m,SA6BSS,60m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf9.jpg
+SA6BSS-80m,SA6BSS,80m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf5.jpg
+SA6BSS-160m,SA6BSS,160m,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/mf1.jpg
+SA6BSS-X,SA6BSS,Random tests,Mikael,Sweden,http://www.qsl.net/sa6bss,http://www.qsl.net/sa6bss/hf8.jpg
+SO5CW-30m,DJ5CW,Experimental,Fabian,Warsaw - Poland KO01MW,https://fkurz.net/ham/qrss/,https://fkurz.net/ham/qrss/30m.png
+SO5CW-LONG-30m,DJ5CW,Experimental,Fabian,Warsaw - Poland KO01MW,https://fkurz.net/ham/qrss/,https://fkurz.net/ham/qrss/fabian-30m-24h-view.png
+SQ4MIK-1,SQ4MIK,Variable,Piotr,Poland,https://www.qsl.net/sq4mik,https://www.qsl.net/sq4mik/hf1.jpg
+TF3HZ-1,TF3HZ,Band varies,Haldor,Iceland,http://halldorg.is/,https://www.qsl.net/tf3hz/tf3hzgrabb.jpg
+VA3VF-1,VA3VF,Testing,Vince,Canada,https://www.qsl.net/va3vf/,https://www.qsl.net/va3vf/latest.jpg
+VA3ROM-22m,VA3ROM,30m,Robert,"Ontario, Canada",http://va3rom.com/QRSS/QRSS.html,http://va3rom.com/QRSS/image1.jpg
+VA3RYV,VA3RYV,MISC BANDS,Wes,"Ontario,Canada",https://qsl.net/va3ryv/,http://www.qsl.net/va3ryv/grabber/hf1.jpg
+VE1VDM-1,VE1VDM,Various,Vernon,"Nova Scotia, Canada",https://www.qsl.net/ve1vdm/,https://www.qsl.net/ve1vdm/argo.jpg
+VE1VDM-2,VE1VDM,Various,Vernon,"Nova Scotia, Canada",https://www.qsl.net/ve1vdm/,https://www.qsl.net/ve1vdm/argo1.jpg
+VK3EDW,VK3EDW,Primary,John,Kallista - Victoria,http://www.qsl.net/vk3edw,http://www.qsl.net/vk3edw/QRSS/assets/images/hf1.jpg
+VK4AAN-10m,VK4AAN,10m,Alan,Queensland,https://www.qsl.net/v/vk4aan/,https://www.qsl.net/v/vk4aan/lopora/lst20m10.jpg
+VK4AAN-24hr-10m,VK4AAN,10m,Alan,Queensland,https://www.qsl.net/v/vk4aan/,https://www.qsl.net/v//vk4aan/lopora/lst24h10.jpg
+VK4AAN-30m,VK4AAN,30m,Alan,Queensland,https://www.qsl.net/v/vk4aan/,https://www.qsl.net/v/vk4aan/lopora/lst20m30.jpg
+VK4AAN-24hr-30m,VK4AAN,30m,Alan,Queensland,https://www.qsl.net/v/vk4aan/,https://www.qsl.net/v//vk4aan/lopora/lst24h30.jpg
+VK4BAP-10m,VK4BAP,Testing,Brian,Queensland Australia,https://www.qsl.net/vk4bap/,https://www.qsl.net/vk4bap/10m/hf1.png
+VK4BAP-40m,VK4BAP,Testing,Brian,Queensland Australia,https://www.qsl.net/vk4bap/,https://www.qsl.net/vk4bap/40m/hf2.png
+VE7IGH-30m,VE7IGH,10Mhz & attic antenna,Gregory,"British Columbia,Canada",http://www.qsl.net/ve7igh/Grabber.htm,http://www.qsl.net/ve7igh/capt.jpg
+W1BW-WIDESHORT,W1BW,0-38MHZ WIDEVIEW SHORT,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/0/latest.jpg
+W1BW-WIDELONG,W1BW,0-38MHZ WIDEVIEW LONG,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/0/slow.jpg
+W1BW-10m,W1BW,10m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/28/latest.jpg
+W1BW-12m,W1BW,12m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/24/latest.jpg
+W1BW-15m,W1BW,15m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us/,https://grabber.w1bw.us/21/latest.jpg
+W1BW-17m,W1BW,17m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/18/latest.jpg
+W1BW-20m,W1BW,20m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/14/latest.jpg
+W1BW-22m,W1BW,22m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/13/latest.jpg
+W1BW-30m,W1BW,30m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/10/latest.jpg
+W1BW-40m,W1BW,40m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/7/latest.jpg
+W1BW-60m,W1BW,60m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/5/latest.jpg
+W1BW-80m,W1BW,80m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/3/latest.jpg
+W1BW-160m,W1BW,160m,Bruce,"QTH Boston,Mass",https://grabber.w1bw.us,https://grabber.w1bw.us/1/latest.jpg
+WD4AH,WD4AH,Testing,Alfred,Florida,http://www.qsl.net/wd4ah,http://www.qsl.net/wd4ah/hf1.jpg
+WD4ELG-10-Fast,WD4ELG,10m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_10M_grabber_fast.jpg
+WD4ELG-15-Fast,WD4ELG,15m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_15M_grabber_fast.jpg
+WD4ELG-20-Fast,WD4ELG,20m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_20M_grabber_fast.jpg
+WD4ELG-30-Fast,WD4ELG,30m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_30M_grabber_fast.jpg
+WD4ELG-40-Fast,WD4ELG,40m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_40M_grabber_fast.jpg
+WD4ELG-80-Fast,WD4ELG,80m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_80M_grabber_fast.jpg
+WD4ELG-160-Fast,WD4ELG,160m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_160M_grabber_fast.jpg
+WD4ELG-10-Slow,WD4ELG,10m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_10M_grabber_slow.jpg
+WD4ELG-15-Slow,WD4ELG,15m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_15M_grabber_slow.jpg
+WD4ELG-20-Slow,WD4ELG,20m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_20M_grabber_slow.jpg
+WD4ELG-30-Slow,WD4ELG,30m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_30M_grabber_slow.jpg
+WD4ELG-40-Slow,WD4ELG,40m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_40M_grabber_slow.jpg
+WD4ELG-80-Slow,WD4ELG,80m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_80M_grabber_slow.jpg
+WD4ELG-160-Slow,WD4ELG,80m grabber,Mark,"Greensboro, NC",https://qsl.net/wd4elg/,https://qsl.net/wd4elg/WD4ELG_160M_grabber_slow.jpg
+# W4HBK-1,W4HBK,10min,Bill,"Pensacola, Florida",http://www.qsl.net/w4hbk/,http://www.qsl.net/w4hbk/hf1.jpg
+W6REK-20m,W6REK,20m,Henry,"San Jose, California",http://yak.net/qrss/,http://yak.net/qrss/W6REK-20m.png
+W6REK-30m,W6REK,30m,Henry,"San Jose, California",http://yak.net/qrss/,http://yak.net/qrss/W6REK-30m.png
+W6REK-40m,W6REK,40m,Henry,"San Jose, California",http://yak.net/qrss/,http://yak.net/qrss/W6REK-40m.png
+W6REK-80j,W6REK,80j,Henry,"San Jose, California",http://yak.net/qrss/,http://yak.net/qrss/W6REK-80j.png
+WA5DJJ-6m,WA5DJJ,6m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,https://www.qsl.net/wa5djj/mf5.jpg
+WA5DJJ-10m,WA5DJJ,10m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/hf8.jpg
+WA5DJJ-Wide-10m,WA5DJJ,10m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,https://qsl.net/wa5djj/uhf7.jpg
+WA5DJJ-12m,WA5DJJ,12m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/hf7.jpg
+WA5DJJ-15m,WA5DJJ,15m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/hf6.jpg
+WA5DJJ-17m,WA5DJJ,17m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/hf5.jpg
+WA5DJJ-20m,WA5DJJ,20m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/hf4.jpg
+WA5DJJ-22m-Hifer1,WA5DJJ,22m HiFer,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,https://qsl.net/wa5djj/uhf4.jpg
+WA5DJJ-22m-Hifer2,WA5DJJ,22m HiFer,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,https://qsl.net/wa5djj/vlf1.jpg
+WA5DJJ-30m,WA5DJJ,30m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/hf3.jpg
+WA5DJJ-40m,WA5DJJ,40m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/hf2.jpg
+WA5DJJ-80m,WA5DJJ,80m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/mf3.jpg
+WA5DJJ-160m,WA5DJJ,160m,David,"Las Cruces, New Mexico",http://qsl.net/wa5djj/,http://qsl.net/wa5djj/mf2.jpg
