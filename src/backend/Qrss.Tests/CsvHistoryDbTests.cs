@@ -25,4 +25,50 @@ internal class CsvHistoryDbTests
         db.AddGrab("grabber2", [2, 2, 2]);
         db.ImageCount.Should().Be(3);
     }
+
+    [Test]
+    public void Test_CsvHistory_WriteAndRead()
+    {
+        CsvHistoryDB db1 = new(string.Empty);
+        db1.AddGrab("grabberA", [1, 1, 1]);
+        db1.AddGrab("grabberB", [1, 1, 2]);
+        db1.AddGrab("grabberB", [1, 1, 3]);
+        db1.AddGrab("grabberC", [1, 1, 4]);
+        db1.ImageCount.Should().Be(4);
+        db1.GetGrabberIDs().Length.Should().Be(3);
+
+        string csvText = db1.GetCsvText();
+        Console.WriteLine(csvText);
+
+        CsvHistoryDB db2 = new(csvText);
+        db2.ImageCount.Should().Be(db1.ImageCount);
+        db2.GetGrabberIDs().Length.Should().Be(3);
+
+        db1.GetCsvText().Should().Be(db2.GetCsvText());
+
+        foreach (string grabberID in db1.GetGrabberIDs())
+        {
+            string[] hashes1 = db1.GetHashes(grabberID);
+            string[] hashes2 = db2.GetHashes(grabberID);
+            hashes1.Should().BeEquivalentTo(hashes2);
+
+            DateTime[] dates1 = db1.GetDates(grabberID);
+            DateTime[] dates2 = db2.GetDates(grabberID);
+            dates1.Should().BeEquivalentTo(dates2);
+        }
+    }
+
+    [Test]
+    public void Test_CsvHistory_KeepLatestOnly()
+    {
+        CsvHistoryDB db1 = new(string.Empty);
+
+        for (byte i = 0; i < 10; i++)
+        {
+            db1.AddGrab("grabberA", [1, 1, i]);
+        }
+        db1.ImageCount.Should().Be(5);
+
+        Console.WriteLine(db1.GetCsvText());
+    }
 }

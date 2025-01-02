@@ -1,4 +1,5 @@
 ﻿using Qrss.Core.Domain;
+using System.Text;
 
 namespace Qrss.Core.GrabberHistoryDatabases;
 
@@ -9,7 +10,7 @@ public class CsvHistoryDB : IGrabberHistoryDB
         public string IdWithHash => $"{GrabberID}-{Hash}";
         public string ToCsvLine()
         {
-            return $"{GrabberID},{Hash},{DateTime.Ticks}";
+            return $"{GrabberID},{Hash},{DateTime:o}";
         }
 
         public static UniqueImage? FromCsvLine(string line)
@@ -23,8 +24,7 @@ public class CsvHistoryDB : IGrabberHistoryDB
 
             try
             {
-                long ticks = long.Parse(parts[2]);
-                DateTime dateTime = new(ticks);
+                DateTime dateTime = DateTime.Parse(parts[2]).ToUniversalTime();
                 return new UniqueImage(parts[0], parts[1], dateTime);
             }
             catch
@@ -35,26 +35,72 @@ public class CsvHistoryDB : IGrabberHistoryDB
     }
 
     public int ImageCount => Images.Count;
-    private readonly List<UniqueImage> Images;
+    private readonly List<UniqueImage> Images = [];
     private readonly HashSet<string> SeenHashes = [];
+    private readonly Dictionary<string, int> HashCount = [];
+    private readonly int MaxGrabHistory;
 
-    public CsvHistoryDB(string csvText)
+    public CsvHistoryDB(string csvText, int maxGrabHistory = 5)
     {
-        Images = csvText.Split("\n")
+        MaxGrabHistory = maxGrabHistory;
+        csvText.Split("\n")
             .Select(UniqueImage.FromCsvLine)
             .Where(x => x is not null)
             .Cast<UniqueImage>()
-            .ToList();
+            .ToList()
+            .ForEach(AddGrab);
+    }
 
-        foreach (var image in Images)
-        {
-            SeenHashes.Add(image.IdWithHash);
-        }
+    public void PurgeOldestRecords()
+    {
+
     }
 
     public string GetCsvText()
     {
-        return string.Join("\n", Images.Select(x => x.ToCsvLine()));
+        StringBuilder sb = new();
+        sb.AppendLine($"# QRSS Grab History Database - Version {Domain.Version.ShortString}");
+        sb.AppendLine($"# Grabber ID, hash, UTC timestamp");
+        Images.ForEach(x => sb.AppendLine(x.ToCsvLine()));
+        return sb.ToString();
+    }
+
+    private void AddGrab(UniqueImage image)
+    {
+        if (SeenHashes.Contains(image.IdWithHash))
+            return;
+
+        Images.Add(image);
+
+        if (!HashCount.ContainsKey(image.GrabberID))
+            HashCount[image.GrabberID] = 0;
+        HashCount[image.GrabberID]++;
+
+        SeenHashes.Add(image.IdWithHash);
+
+        while (HashCount[image.GrabberID] > MaxGrabHistory)
+        {
+            DeleteOldestGrab(image.GrabberID);
+        }
+    }
+
+    private void DeleteOldestGrab(string grabberID)
+    {
+        UniqueImage? oldestImage = null;
+        foreach (UniqueImage image in Images.Where(x => x.GrabberID == grabberID))
+        {
+            if (oldestImage is null || image.DateTime < oldestImage.DateTime)
+            {
+                oldestImage = image;
+            }
+        }
+
+        if (oldestImage is not null)
+        {
+            Images.Remove(oldestImage);
+            SeenHashes.Remove(oldestImage.Hash);
+            HashCount[oldestImage.GrabberID]--;
+        }
     }
 
     public void AddGrab(string grabberID, byte[] bytes)
@@ -65,11 +111,33 @@ public class CsvHistoryDB : IGrabberHistoryDB
         string hash = string.Join("", hashParts);
 
         UniqueImage image = new(grabberID, hash, DateTime.UtcNow);
+        AddGrab(image);
+    }
 
-        if (SeenHashes.Contains(image.IdWithHash))
-            return;
+    public string[] GetGrabberIDs()
+    {
+        return Images.Select(x => x.GrabberID).Distinct().ToArray();
+    }
 
-        Images.Add(image);
-        SeenHashes.Add(image.IdWithHash);
+    public string[] GetHashes(string grabberID)
+    {
+        List<string> hashes = [];
+        foreach (var image in Images)
+        {
+            if (image.GrabberID == grabberID)
+                hashes.Add(image.Hash);
+        }
+        return hashes.ToArray();
+    }
+
+    public DateTime[] GetDates(string grabberID)
+    {
+        List<DateTime> dates = [];
+        foreach (var image in Images)
+        {
+            if (image.GrabberID == grabberID)
+                dates.Add(image.DateTime);
+        }
+        return dates.ToArray();
     }
 }
