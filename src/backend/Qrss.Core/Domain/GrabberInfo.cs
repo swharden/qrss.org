@@ -59,4 +59,9 @@ public class GrabberInfo : IEquatable<GrabberInfo>
     {
         return Equals(obj as GrabberInfo);
     }
+
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(ID, Callsign, Title, Name, Location, ImageUrl, WebsiteUrl);
+    }
 }
