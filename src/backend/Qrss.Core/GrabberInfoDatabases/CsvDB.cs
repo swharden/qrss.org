@@ -2,14 +2,13 @@
 using System.Text;
 
 namespace Qrss.Core.GrabberInfoDatabases;
-public class CsvGrabberInfoDB : IGrabberInfoDB
+public class CsvDB : IGrabberInfoDB
 {
     private readonly MemoryDB MemoryDB = new();
 
-    public CsvGrabberInfoDB(string csvFilePath)
+    public CsvDB(string csvText)
     {
-        string[] lines = File.ReadAllLines(csvFilePath);
-        foreach (string line in lines)
+        foreach (string line in csvText.Split("\n").Select(x=>x.Trim()))
         {
             if (line.StartsWith('#'))
                 continue;
@@ -112,5 +111,14 @@ public class CsvGrabberInfoDB : IGrabberInfoDB
         parts.Add(current);
 
         return parts;
+    }
+
+    public static async Task<CsvDB> FromCsvUrl(string url)
+    {
+        using HttpClient client = new();
+        using HttpResponseMessage response = await client.GetAsync(url);
+        using HttpContent content = response.Content;
+        string txt = await content.ReadAsStringAsync();
+        return new CsvDB(txt);
     }
 }

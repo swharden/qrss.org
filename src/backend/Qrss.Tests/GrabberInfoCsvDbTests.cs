@@ -5,7 +5,8 @@ public class GrabberInfoCsvDbTests
     [Test]
     public void Test_CsvDatabase_Read()
     {
-        Qrss.Core.GrabberInfoDatabases.CsvGrabberInfoDB csvDb = new(SampleData.GrabberInfoDatabaseCsvFilePath);
+        string csvText = File.ReadAllText(SampleData.GrabberInfoDatabaseCsvFilePath);
+        Qrss.Core.GrabberInfoDatabases.CsvDB csvDb = new(csvText);
         var infos = csvDb.ReadAll();
         infos.Count().Should().Be(181);
     }
@@ -15,10 +16,11 @@ public class GrabberInfoCsvDbTests
     {
         string saveTestFilename = "grabber-info-save-test.csv";
 
-        Qrss.Core.GrabberInfoDatabases.CsvGrabberInfoDB csvDb1 = new(SampleData.GrabberInfoDatabaseCsvFilePath);
+        string csvText = File.ReadAllText(SampleData.GrabberInfoDatabaseCsvFilePath);
+        Qrss.Core.GrabberInfoDatabases.CsvDB csvDb1 = new(csvText);
         csvDb1.SaveAs(saveTestFilename);
 
-        Qrss.Core.GrabberInfoDatabases.CsvGrabberInfoDB csvDb2 = new(saveTestFilename);
+        Qrss.Core.GrabberInfoDatabases.CsvDB csvDb2 = new(csvText);
 
         csvDb1.ReadAll().Count().Should().Be(csvDb2.ReadAll().Count());
 

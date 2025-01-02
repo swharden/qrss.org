@@ -1,11 +1,13 @@
-﻿namespace Qrss.Tests;
+﻿using Qrss.Core.ImageDatabases;
+
+namespace Qrss.Tests;
 
 internal class ImageFolderDbTests
 {
     [Test]
     public void Test_ImageFileDatabase_AddImages()
     {
-        GrabImageFolder db = new("./");
+        ImageFolderDB db = new("./");
         db.Count.Should().Be(0);
 
         db.SaveIfUnique("grabber1", [1, 2, 3], "myGrabber1.png");
@@ -18,7 +20,7 @@ internal class ImageFolderDbTests
     [Test]
     public void Test_ImageFileDatabase_PermitIdenticalHashesFromDifferentGrabbers()
     {
-        GrabImageFolder db = new("./");
+        ImageFolderDB db = new("./");
         db.Count.Should().Be(0);
 
         db.SaveIfUnique("grabber1", [1, 2, 3], "myGrabber1.png");
@@ -31,7 +33,7 @@ internal class ImageFolderDbTests
     [Test]
     public void Test_ImageFileDatabase_IgnoreDuplicateImagesFromSameGrabber()
     {
-        GrabImageFolder db = new("./");
+        ImageFolderDB db = new("./");
         db.Count.Should().Be(0);
 
         db.SaveIfUnique("grabber1", [1, 2, 3], "myGrabber1.png");
@@ -46,7 +48,7 @@ internal class ImageFolderDbTests
     [Test]
     public void Test_ImageFileDatabase_AutomaticFilename()
     {
-        GrabImageFolder db = new("./");
+        ImageFolderDB db = new("./");
 
         string? filename1 = db.SaveIfUnique("grabber1", [1, 2, 3], "myGrabber1.png");
         string? filename2 = db.SaveIfUnique("grabber1", [4, 5, 6], "myGrabber1.png");
