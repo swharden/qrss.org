@@ -1,17 +1,19 @@
-﻿Console.WriteLine($"Connecting to image database...");
-Qrss.Core.ImageDatabases.ImageFolderDB imageDB = new("./image-db");
-Console.WriteLine($"Located {imageDB.Count} known unique grabs");
+﻿using Qrss.Core.Domain;
 
 Console.WriteLine($"Downloading CSV file...");
 const string GrabbersCsvUrl = "https://raw.githubusercontent.com/swharden/QRSSplus/refs/heads/master/grabbers.csv";
-Qrss.Core.GrabberInfoDatabases.CsvDB grabberDB = await Qrss.Core.GrabberInfoDatabases.CsvDB.FromCsvUrl(GrabbersCsvUrl);
-Console.WriteLine($"Identified {grabberDB.ReadAll().Count()} grabbers");
+IGrabberInfoDB grabberDatabase = await Qrss.Core.GrabberInfoDatabases.CsvDB.FromCsvUrl(GrabbersCsvUrl);
+Console.WriteLine($"Identified {grabberDatabase.ReadAll().Count()} grabbers");
 
-Console.WriteLine($"Checking grabber URLs for new images...");
-await imageDB.DownloadImagesAsync(grabberDB);
+Console.WriteLine($"Connecting to image database...");
+IGrabImageManager imageManager = new Qrss.Core.GrabImageManagers.FlatFolder("./image-db");
+Console.WriteLine($"Located {imageManager.ImageCount} existing images");
+
+Console.WriteLine($"Downloading new images...");
+await imageManager.DownloadImagesAsync(grabberDatabase);
 
 Console.WriteLine($"Deleting old images...");
-imageDB.DeleteOldImages(TimeSpan.FromHours(1));
+await imageManager.DeleteOldImagesAsync(TimeSpan.FromHours(1));
 
 Console.WriteLine("DONE!");
 Console.ReadLine();

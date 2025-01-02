@@ -1,25 +1,22 @@
 ﻿using Qrss.Core.Domain;
-using System;
 
-namespace Qrss.Core.ImageDatabases;
-
-// TODO: use interface to allow this to be an S3 bucket or something
+namespace Qrss.Core.GrabImageManagers;
 
 /// <summary>
 /// This database of grabber images is maintained as a collection of image files in a folder.
 /// The image filename contains the grabber ID, its own hash, and the date it was acquired.
 /// </summary>
-public class ImageFolderDB
+public class FlatFolder : IGrabImageManager
 {
     // the filename stores the dates of the last N unique images for each grabber ID
     private readonly List<string> Filenames = [];
-    public int Count => Filenames.Count;
+    public int ImageCount => Filenames.Count;
 
     private const string FILE_PREFIX = "GRAB";
 
     private readonly string FolderPath;
 
-    public ImageFolderDB(string folderPath)
+    public FlatFolder(string folderPath)
     {
         if (!Directory.Exists(folderPath))
         {
@@ -70,7 +67,7 @@ public class ImageFolderDB
         return new DateTime(year, month, day, hour, minute, second);
     }
 
-    public static TimeSpan GetAgeFromFilename(string filename)
+    private static TimeSpan GetAgeFromFilename(string filename)
     {
         return DateTime.UtcNow - GetDateTimeFromFilename(filename);
     }
@@ -83,24 +80,7 @@ public class ImageFolderDB
         return string.Join("-", parts) + Path.GetExtension(originalFilename);
     }
 
-    public string? SaveIfUnique(string id, byte[] bytes, string originalFilename)
-    {
-        string hash = GetHash(bytes);
-
-        if (IsHashInDatabase(id, hash))
-            return null;
-
-        string filename = GetFilename(id, hash, originalFilename, DateTime.UtcNow);
-        Filenames.Add(filename);
-
-        // TODO: save file to disk
-
-        // TODO: identify old files, delete them, and remove them from the DB
-
-        return filename;
-    }
-
-    public static string GetHash(byte[] bytes, int length = 8)
+    private static string GetHashForFilename(byte[] bytes, int length = 8)
     {
         string[] parts = System.Security.Cryptography.MD5.HashData(bytes)
             .Select(x => x.ToString("x2"))
@@ -123,7 +103,7 @@ public class ImageFolderDB
             using HttpResponseMessage response = await client.GetAsync(grabber.ImageUrl, token);
             using HttpContent content = response.Content;
             byte[] bytes = await content.ReadAsByteArrayAsync(token);
-            string hash = GetHash(bytes);
+            string hash = GetHashForFilename(bytes);
 
             if (IsHashInDatabase(grabber.ID, hash))
             {
@@ -143,13 +123,14 @@ public class ImageFolderDB
         });
     }
 
-    public void DeleteImage(string filename)
+    private async Task DeleteImageAsync(string filename)
     {
         string path = Path.Combine(FolderPath, filename);
         File.Delete(path);
+        await Task.CompletedTask;
     }
 
-    public void DeleteOldImages(TimeSpan maxAge)
+    public async Task DeleteOldImagesAsync(TimeSpan maxAge)
     {
         foreach (string filename in GetImageFilenames())
         {
@@ -158,7 +139,7 @@ public class ImageFolderDB
                 continue;
 
             Console.WriteLine($"Deleting outdated image: {filename}");
-            DeleteImage(filename);
+            await DeleteImageAsync(filename);
         }
     }
 }
