@@ -10,7 +10,8 @@ IGrabberInfoDB grabberDatabase = await Qrss.Core.GrabberInfoDatabases.CsvDB.From
 logger.Log($"Identified {grabberDatabase.ReadAll().Count()} grabbers");
 
 logger.Log($"Connecting to image database...");
-IGrabImageManager imageManager = new Qrss.Core.GrabImageManagers.FlatFolder("./image-db");
+string imageFolder = Path.Combine(AppContext.BaseDirectory, "./image-db");
+IGrabImageManager imageManager = new Qrss.Core.GrabImageManagers.FlatFolder(imageFolder);
 logger.Log($"Located {imageManager.ImageCount} existing images");
 
 logger.Log($"Downloading new images...");
@@ -20,7 +21,9 @@ logger.Log($"Deleting old images...");
 await imageManager.DeleteOldImagesAsync(TimeSpan.FromHours(1));
 
 logger.Log("DONE!");
-logger.SaveAs($"log-{DateTime.UtcNow.Ticks}.txt");
+
+string logFolder = Path.Combine(AppContext.BaseDirectory, "./logs");
+logger.SaveAs(logFolder);
 
 class Logger()
 {
@@ -35,10 +38,17 @@ class Logger()
         SB.AppendLine(line);
     }
 
-    public void SaveAs(string filename)
+    public void SaveAs(string folder)
     {
-        filename = Path.GetFullPath(filename);
-        File.WriteAllText(filename, SB.ToString());
-        Console.WriteLine($"Wrote: {filename}");
+        folder = Path.GetFullPath(folder);
+        if (!Directory.Exists(folder))
+        {
+            Directory.CreateDirectory(folder);
+        }
+
+        string filename = $"log-{DateTime.UtcNow.Ticks}.txt";
+        string filePath = Path.Combine(folder, filename);
+        File.WriteAllText(filePath, SB.ToString());
+        Console.WriteLine($"Wrote: {filePath}");
     }
 }
