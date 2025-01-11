@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  image-service:
+    build:
+      context: .
+      dockerfile: Dockerfile.ImageService
+    volumes:
+      - ./volumes/image-service:/app/data
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.API
+    volumes:
+      - ./volumes/image-service:/app/data
+    ports:
+      - "8080:8080"

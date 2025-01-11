@@ -2,12 +2,12 @@
 using System.Diagnostics;
 using System.Text;
 
-string appFolder = args.FirstOrDefault() ?? Path.Combine(AppContext.BaseDirectory, "app");
-if (Directory.Exists(appFolder))
+string dataFolder = Path.Combine(AppContext.BaseDirectory, "data");
+if (Directory.Exists(dataFolder))
 {
-    Directory.CreateDirectory(appFolder);
+    Directory.CreateDirectory(dataFolder);
 }
-Console.WriteLine($"APP FOLDER: {appFolder}");
+Console.WriteLine($"APP FOLDER: {dataFolder}");
 
 Logger logger = new();
 
@@ -17,7 +17,7 @@ IGrabberInfoDB grabberDatabase = await Qrss.Core.GrabberInfoDatabases.CsvDB.From
 logger.Log($"Identified {grabberDatabase.ReadAll().Count()} grabbers");
 
 logger.Log($"Connecting to image database...");
-string imageFolder = Path.Combine(appFolder, "./image-db");
+string imageFolder = Path.Combine(dataFolder, "./grabs");
 IGrabImageManager imageManager = new Qrss.Core.GrabImageManagers.FlatFolder(imageFolder);
 logger.Log($"Located {imageManager.ImageCount} existing images");
 
@@ -29,7 +29,7 @@ await imageManager.DeleteOldImagesAsync(TimeSpan.FromHours(1));
 
 logger.Log("DONE!");
 
-string logFolder = Path.Combine(appFolder, "./logs");
+string logFolder = Path.Combine(dataFolder, "./logs");
 logger.SaveAs(logFolder);
 
 class Logger()
