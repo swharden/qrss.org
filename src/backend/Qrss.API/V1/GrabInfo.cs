@@ -35,8 +35,28 @@ public class GrabInfo()
         TimeOnly time = new(hour, minute, second);
 
         info.DateTime = new(date, time);
-        info.AgeSeconds = (DateTime.UtcNow - info.DateTime).Seconds;
+        info.AgeSeconds = (int)(DateTime.UtcNow - info.DateTime).TotalSeconds;
 
         return info;
+    }
+
+    public static Dictionary<string, List<GrabInfo>> FromPaths(string[] paths)
+    {
+        Dictionary<string, List<GrabInfo>> byGrabber = [];
+
+        foreach (string path in paths)
+        {
+            GrabInfo info = GrabInfo.FromPath(path);
+            if (byGrabber.TryGetValue(info.GrabberID, out List<GrabInfo>? value))
+            {
+                value.Add(info);
+            }
+            else
+            {
+                byGrabber[info.GrabberID] = [info];
+            }
+        }
+
+        return byGrabber;
     }
 }
