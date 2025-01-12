@@ -1,6 +1,7 @@
 ﻿using Qrss.Core.Domain;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 
 namespace Qrss.Core.GrabImageManagers;
 
@@ -131,25 +132,51 @@ public class FlatFolder : IGrabImageManager
 
         await Parallel.ForEachAsync(grabbers, async (grabber, token) =>
         {
-            using HttpClient client = new();
-            using HttpResponseMessage response = await client.GetAsync(grabber.ImageUrl, token);
-            using HttpContent content = response.Content;
-            byte[] bytes = await content.ReadAsByteArrayAsync(token);
-            bytesDownloaded += bytes.Length;
-            imageCount += 1;
-            string hash = GetHashForFilename(bytes);
-
-            if (IsHashInDatabase(grabber.ID, hash))
-                return;
-
-            string originalFilename = Path.GetFileName(grabber.ImageUrl);
-            string newFilename = GetFilename(grabber.ID, hash, originalFilename, DateTime.UtcNow);
-            string saveAs = Path.Combine(FolderPath, newFilename);
-            await File.WriteAllBytesAsync(saveAs, bytes, token);
-            Filenames.Add(newFilename);
+            try
+            {
+                byte[] bytes = await DownloadAsync(grabber, token);
+                bytesDownloaded += bytes.Length;
+                imageCount += 1;
+                //Console.WriteLine($"[{grabber.ID}] downloaded {bytes.Length / 1e6:N2} MB");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[{grabber.ID}] download error: {ex.Message}");
+            }
         });
 
         Console.WriteLine($"Downloaded: {imageCount} images ({bytesDownloaded / 1e6:N2} MB) in {sw.Elapsed.TotalSeconds:N2} sec");
+    }
+
+    private async Task<byte[]> DownloadAsync(GrabberInfo grabber, CancellationToken token)
+    {
+        HttpClientHandler handler = new()
+        {
+            ClientCertificateOptions = ClientCertificateOption.Manual,
+            ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => true
+        };
+
+        using HttpClient client = new(handler);
+        using HttpResponseMessage response = await client.GetAsync(grabber.ImageUrl, token);
+
+        if (!response.IsSuccessStatusCode)
+            throw new InvalidOperationException($"request failed: ({(int)response.StatusCode}) {response.ReasonPhrase}");
+
+        using HttpContent content = response.Content;
+        byte[] bytes = await content.ReadAsByteArrayAsync(token);
+
+        string hash = GetHashForFilename(bytes);
+
+        if (IsHashInDatabase(grabber.ID, hash))
+            return bytes;
+
+        string originalFilename = Path.GetFileName(grabber.ImageUrl);
+        string newFilename = GetFilename(grabber.ID, hash, originalFilename, DateTime.UtcNow);
+        string saveAs = Path.Combine(FolderPath, newFilename);
+        await File.WriteAllBytesAsync(saveAs, bytes, token);
+        Filenames.Add(newFilename);
+
+        return bytes;
     }
 
     private async Task DeleteImageAsync(string filename)

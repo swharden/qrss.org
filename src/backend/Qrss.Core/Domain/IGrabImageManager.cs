@@ -6,6 +6,6 @@
 public interface IGrabImageManager
 {
     int ImageCount { get; }
-    Task DownloadImagesAsync(IGrabberInfoDB grabberDB, int maxCount = 10, int threads = 10);
+    Task DownloadImagesAsync(IGrabberInfoDB grabberDB, int maxCount = 999, int threads = 10);
     Task DeleteOldImagesAsync(TimeSpan maxAge);
 }
