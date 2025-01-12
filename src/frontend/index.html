@@ -7,58 +7,93 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         .thumbnail {
-            width: 300px;
+            width: 150px;
+            aspect-ratio: auto 150 / 100;
+            height: 100px;
             padding: 0.5rem;
+        }
+
+        .line-error {
+            background-color: yellow;
+        }
+
+        .line-inactive {
+            color: #af9999;
+        }
+
+        .line-active {
+            background-color: #bdddbd;
         }
     </style>
 </head>
 
 <body>
-    <div class="container" id="container"></div>
+    <div class="container" id="container">
+        <h1 class="mt-4">QRSS Live</h1>
+    </div>
     <script>
+
+        const ACTIVE_MINUTES = 30;
+
+        function AddActiveGrabImages(data, container) {
+
+            const h = document.createElement("h3");
+            h.classList.add("mt-5")
+            container.appendChild(h);
+
+            const activeGrabbers = [];
+
+            let activeCount = 0;
+            Object.entries(data).forEach(([key, value]) => {
+                const latestGrab = value[0];
+                const latestAgeMinutes = Math.round(latestGrab.ageSeconds / 60);
+                if (latestAgeMinutes <= ACTIVE_MINUTES) {
+                    const grabDiv = document.createElement("div");
+                    grabDiv.classList.add('d-inline-block');
+                    const url = `/data/grabs/${latestGrab.filename}`;
+                    grabDiv.innerHTML = `
+                        <a href='${url}' target='_blank'>
+                        <img src='${url}' class='thumbnail'>
+                        </a>
+                    `
+                    container.appendChild(grabDiv);
+                    activeCount += 1;
+                }
+            });
+
+            h.innerText = `Active Grabbers (${activeCount})`;
+        }
+
+        function AddGrabberTable(data, container) {
+            Object.entries(data).forEach(([key, value]) => {
+                const latestGrab = value[0];
+                const latestAgeMinutes = Math.round(latestGrab.ageSeconds / 60);
+                const isActive = latestAgeMinutes <= ACTIVE_MINUTES;
+
+                const span = document.createElement("span");
+                const ages = value.map(x => Math.round(x.ageSeconds / 60)).join(", ");
+                span.innerText = `${latestGrab.grabberID} ` + ages;
+                span.classList.add(isActive ? 'line-active' : 'line-inactive');
+                
+                const div = document.createElement("div");
+                div.appendChild(span);
+
+                container.appendChild(div);
+            });
+        }
+
         fetch('/api/v1')
             .then(response => response.json())
             .then(data => {
 
                 const container = document.getElementById("container");
 
-                const div = document.createElement("div");
-                div.innerHTML = `<code>${new Date().toTimeString()}</code>`;
-                div.classList.add("my-5")
-                container.appendChild(div);
+                // sort grabs newest to oldest
+                // TODO: use actual timestamp and don't assume they arrive sorted
+                Object.entries(data).forEach(([key, value]) => value.reverse());
 
-                Object.entries(data).forEach(([key, value]) => {
-
-                    value.reverse();
-                    const latestGrab = value[0];
-                    const latestAgeMinutes = Math.round(latestGrab.ageSeconds / 60);
-
-                    const div = document.createElement("h2");
-                    div.innerText = `${key} (${latestAgeMinutes} minutes)`;
-                    div.classList.add("mt-5")
-                    container.appendChild(div);
-
-                    value.forEach(grab => {
-                        const div = document.createElement("div");
-                        const ageMinutes = Math.round(grab.ageSeconds / 60);
-                        div.innerText = `${grab.filename} (${ageMinutes} minutes)`;
-                        container.appendChild(div);
-                    });
-
-                    value.forEach(grab => {
-                        console.log(grab.grabberID);
-                        const grabDiv = document.createElement("div");
-                        grabDiv.classList.add('d-inline-block');
-                        const url = `/data/grabs/${grab.filename}`;
-                        grabDiv.innerHTML = `
-                            <a href='${url}' target='_blank'>
-                            <img src='${url}' class='thumbnail'>
-                            </a>
-                        `
-                        container.appendChild(grabDiv);
-                    });
-
-                });
+                AddActiveGrabImages(data, container);
+                AddGrabberTable(data, container);
             });
     </script>
 
