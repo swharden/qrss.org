@@ -5,13 +5,13 @@ services:
       context: .
       dockerfile: Dockerfile.ImageService
     volumes:
-      - ./volumes/app-data:/app/data
+      - ./volumes/app/data:/app/data
   api:
     build:
       context: .
       dockerfile: Dockerfile.API
     volumes:
-      - ./volumes/app-data:/app/data
+      - ./volumes/app/data:/app/data
     ports:
       - "8080:8080"
   web:
@@ -19,6 +19,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - './volumes/app-data:/usr/share/nginx/html/data'
+      - './volumes/app/data:/usr/share/nginx/html/data'
     depends_on:
       - webapp

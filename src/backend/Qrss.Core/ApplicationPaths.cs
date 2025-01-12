@@ -7,24 +7,19 @@ public static class ApplicationPaths
 
     static string GetAppFolder()
     {
-        string?[] foldersToCheck = [
-            "/",
-            GetRepoRootFolder(),
-        ];
-
-        foreach (string? folder in foldersToCheck)
+        string systemAppFolder = Path.GetFullPath("/app");
+        if (Directory.Exists(systemAppFolder))
         {
-            if (folder is null)
-                continue;
-
-            string appFolder = Path.Combine(folder, "app");
-            Console.WriteLine($"Checking app folder: {appFolder}");
-            if (Directory.Exists(appFolder))
-                return appFolder;
+            return systemAppFolder;
         }
 
-        throw new DirectoryNotFoundException("Folder named 'app' could not be located. " +
-            "Place it at the root of the git repo (for dev) or filesystem (for prod)");
+        string repoAppFolder = GetRepoAppFolder();
+        if (Directory.Exists(repoAppFolder))
+        {
+            return repoAppFolder;
+        }
+
+        throw new DirectoryNotFoundException("Folder named 'app' not found");
     }
 
     static string GetDataFolder()
@@ -51,7 +46,11 @@ public static class ApplicationPaths
         return path;
     }
 
-    static string? GetRepoRootFolder()
+    /// <summary>
+    /// Call this when running in a dev environment from the GitHub repo.
+    /// It will return the path to REPO/src/volumes or will throw.
+    /// </summary>
+    static string GetRepoAppFolder()
     {
         string? path = Path.GetFullPath("./");
 
@@ -60,12 +59,19 @@ public static class ApplicationPaths
             string licenseFilePath = Path.Combine(path, "LICENSE");
             if (File.Exists(licenseFilePath))
             {
-                Console.WriteLine($"Repository root: {path}");
-                return path;
+                string volumesFolder = Path.Combine(path, "src/volumes/app");
+                if (Directory.Exists(volumesFolder))
+                {
+                    return Path.GetFullPath(volumesFolder);
+                }
+                else
+                {
+                    throw new DirectoryNotFoundException($"repository found but it does not contain {volumesFolder}");
+                }
             }
             path = Path.GetDirectoryName(path);
         }
 
-        return null;
+        throw new DirectoryNotFoundException("repository not found");
     }
 }
