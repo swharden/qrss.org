@@ -38,12 +38,8 @@ static void DownloadNewImages()
 
 static async Task DownloadNewImagesAsync()
 {
-    string dataFolder = Path.Combine(AppContext.BaseDirectory, "data");
-    if (Directory.Exists(dataFolder))
-    {
-        Directory.CreateDirectory(dataFolder);
-    }
-    Console.WriteLine($"APP FOLDER: {dataFolder}");
+    Console.WriteLine($"IMAGE FOLDER: {Qrss.Core.ApplicationPaths.GrabImageFolder}");
+    Console.WriteLine($"LOG FOLDER: {Qrss.Core.ApplicationPaths.LogFolder}");
 
     Logger logger = new();
 
@@ -53,8 +49,7 @@ static async Task DownloadNewImagesAsync()
     logger.Log($"Identified {grabberDatabase.ReadAll().Count()} grabbers");
 
     logger.Log($"Connecting to image database...");
-    string imageFolder = Path.Combine(dataFolder, "./grabs");
-    IGrabImageManager imageManager = new Qrss.Core.GrabImageManagers.FlatFolder(imageFolder);
+    IGrabImageManager imageManager = new Qrss.Core.GrabImageManagers.FlatFolder(Qrss.Core.ApplicationPaths.GrabImageFolder);
     logger.Log($"Located {imageManager.ImageCount} existing images");
 
     logger.Log($"Downloading new images...");
@@ -65,8 +60,7 @@ static async Task DownloadNewImagesAsync()
 
     logger.Log("DONE!");
 
-    string logFolder = Path.Combine(dataFolder, "./logs");
-    logger.SaveAs(logFolder);
+    logger.SaveAs(Qrss.Core.ApplicationPaths.LogFolder);
 }
 
 class Logger()

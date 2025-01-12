@@ -5,20 +5,11 @@ var app = builder.Build();
 
 app.MapGet("/", () =>
 {
-    // TODO: use core logic to store folder paths
-    string dataFolder = Path.Combine(AppContext.BaseDirectory, "data");
-    string grabImageFolder = Path.Combine(dataFolder, "grabs");
-
-    if (!Directory.Exists(grabImageFolder))
-    {
-        return Results.Problem($"grab image folder not found: {grabImageFolder}");
-    }
-
     StringBuilder sb = new();
 
     sb.AppendLine($"<div>Updated {DateTime.Now.Ticks}</div>");
 
-    foreach (string path in Directory.GetFiles(grabImageFolder))
+    foreach (string path in Directory.GetFiles(Qrss.Core.ApplicationPaths.GrabImageFolder))
     {
         sb.AppendLine($"<div>{path}</div>");
     }
