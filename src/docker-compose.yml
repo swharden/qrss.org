@@ -19,6 +19,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - './volumes/app/data:/usr/share/nginx/html/data'
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./frontend:/usr/share/nginx/html
+      - ./volumes/app/data:/usr/share/nginx/html/data
     depends_on:
-      - webapp
+      - api
