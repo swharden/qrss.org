@@ -1,5 +1,6 @@
 ﻿using Qrss.Core.Domain;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Qrss.Core.GrabImageManagers;
 
@@ -42,6 +43,26 @@ public class FlatFolder : IGrabImageManager
         return [.. filenames];
     }
 
+    private Dictionary<string, List<string>> GetFilenamesByGrabber()
+    {
+        Dictionary<string, List<string>> filenamesByGrabber = [];
+
+        foreach (string filename in GetImageFilenames())
+        {
+            string grabberID = GetGrabberIdFromFilename(filename);
+            if (filenamesByGrabber.TryGetValue(grabberID, out List<string>? value))
+            {
+                value.Add(filename);
+            }
+            else
+            {
+                filenamesByGrabber[grabberID] = [filename];
+            }
+        }
+
+        return filenamesByGrabber;
+    }
+
     private bool IsHashInDatabase(string id, string hash)
     {
         foreach (string filename in Filenames.Where(x => x.Contains($"-{id}-")))
@@ -55,6 +76,11 @@ public class FlatFolder : IGrabImageManager
     private static string GetHashFromFilename(string filename)
     {
         return filename.Split("-")[4].Split(".")[0];
+    }
+
+    private static string GetGrabberIdFromFilename(string filename)
+    {
+        return filename.Split("-")[1];
     }
 
     private static DateTime GetDateTimeFromFilename(string filename)
@@ -114,14 +140,7 @@ public class FlatFolder : IGrabImageManager
             string hash = GetHashForFilename(bytes);
 
             if (IsHashInDatabase(grabber.ID, hash))
-            {
-                Console.WriteLine($"SEEN: {grabber.ID}");
                 return;
-            }
-            else
-            {
-                Console.WriteLine($"NEW: {grabber.ID}");
-            }
 
             string originalFilename = Path.GetFileName(grabber.ImageUrl);
             string newFilename = GetFilename(grabber.ID, hash, originalFilename, DateTime.UtcNow);
@@ -142,14 +161,24 @@ public class FlatFolder : IGrabImageManager
 
     public async Task DeleteOldImagesAsync(TimeSpan maxAge)
     {
-        foreach (string filename in GetImageFilenames())
+        foreach ((_, List<string> filenames) in GetFilenamesByGrabber())
         {
-            TimeSpan imageAge = GetAgeFromFilename(filename);
-            if (imageAge <= maxAge)
-                continue;
+            filenames.Sort();
+            string newestFile = filenames.Last();
 
-            Console.WriteLine($"Deleting outdated image: {filename}");
-            await DeleteImageAsync(filename);
+            foreach (string filename in filenames)
+            {
+                TimeSpan age = GetAgeFromFilename(newestFile);
+
+                if (filename == newestFile)
+                    continue;
+
+                TimeSpan imageAge = GetAgeFromFilename(filename);
+                if (imageAge <= maxAge)
+                    continue;
+
+                await DeleteImageAsync(filename);
+            }
         }
     }
 }

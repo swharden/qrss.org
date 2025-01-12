@@ -7,16 +7,20 @@ public class GrabInfo()
 {
     public string GrabberID { get; set; } = "undefined";
     public DateTime DateTime { get; set; }
+    public int AgeSeconds { get; set; }
     public string Hash { get; set; } = "undefined";
+    public string Filename { get; set; } = "undefined";
 
     public static GrabInfo FromPath(string path)
     {
-        GrabInfo info = new();
-
-        // GRAB-ea8bvp30m4hr-20250112-030202-41afe434.jpg
         string[] parts = Path.GetFileNameWithoutExtension(path).Split("-");
 
-        info.GrabberID = parts[1];
+        GrabInfo info = new()
+        {
+            Filename = Path.GetFileName(path),
+            GrabberID = parts[1],
+            Hash = parts[4],
+        };
 
         string dayCode = parts[2];
         int day = int.Parse(dayCode[6..8]);
@@ -31,8 +35,7 @@ public class GrabInfo()
         TimeOnly time = new(hour, minute, second);
 
         info.DateTime = new(date, time);
-
-        info.Hash = parts[4];
+        info.AgeSeconds = (DateTime.UtcNow - info.DateTime).Seconds;
 
         return info;
     }
