@@ -18,7 +18,8 @@
         }
 
         .line-inactive {
-            color: #af9999;
+            background-color: #ffb1b1;
+            padding: 0.2rem;
         }
 
         .line-active {
@@ -65,21 +66,42 @@
         }
 
         function AddGrabberTable(data, container) {
-            Object.entries(data).forEach(([key, value]) => {
-                const latestGrab = value[0];
+
+            const table = document.createElement("table");
+
+            const trh = document.createElement("tr");
+            trh.innerHTML += `<th>Grabber</th>`;
+            trh.innerHTML += `<th>Changed</th>`;
+            table.appendChild(trh);
+
+            const grabberIDs = Object.keys(data).sort();
+
+            grabberIDs.forEach((grabberID) => {
+                const grabs = data[grabberID];
+                const latestGrab = grabs[0];
                 const latestAgeMinutes = Math.round(latestGrab.ageSeconds / 60);
                 const isActive = latestAgeMinutes <= ACTIVE_MINUTES;
+                const status = isActive ? "active" : "inactive";
 
                 const span = document.createElement("span");
-                const ages = value.map(x => Math.round(x.ageSeconds / 60)).join(", ");
-                span.innerText = `${latestGrab.grabberID} ` + ages;
-                span.classList.add(isActive ? 'line-active' : 'line-inactive');
-                
-                const div = document.createElement("div");
-                div.appendChild(span);
+                const ages = grabs.map(x => Math.round(x.ageSeconds / 60)).join(", ");
+                const ageMin = grabs[0].ageSeconds / 60;
+                const ageHours = ageMin / 60;
+                const ageDays = ageHours / 24;
 
-                container.appendChild(div);
+                const tr = document.createElement("tr");
+                tr.innerHTML += `<td>${grabberID}</td>`;
+
+                if (ageHours < 2) {
+                    tr.innerHTML += `<td class='line-active'>${Math.round(ageMin)} min</td>`;
+                } else {
+                    tr.innerHTML += `<td class='line-inactive'>${Math.round(ageDays * 10) / 10} days</td>`;
+                }
+
+                table.appendChild(tr);
             });
+
+            container.appendChild(table);
         }
 
         fetch('/api/v1')
@@ -89,8 +111,7 @@
                 const container = document.getElementById("container");
 
                 // sort grabs newest to oldest
-                // TODO: use actual timestamp and don't assume they arrive sorted
-                Object.entries(data).forEach(([key, value]) => value.reverse());
+                Object.entries(data).forEach(([key, value]) => value.sort((a, b) => a.ageSeconds - b.ageSeconds));
 
                 AddActiveGrabImages(data, container);
                 AddGrabberTable(data, container);
